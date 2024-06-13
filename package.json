@@ -1,0 +1,54 @@
+{
+  "name": "@gyoza/gyoza-react",
+  "private": true,
+  "description": "Gyoza is an experimental framework for React applications powered by bun and elysia.",
+  "license": "MIT",
+  "version": "0.1.0",
+  "author": {
+    "name": "d-spindola"
+  },
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "bun run --port=3000 --watch ./server.ts",
+    "format": "biome format --write ./",
+    "clean": "rm -rf ./dist ./node_modules",
+    "start": "bun --port=8080 ./server.ts"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/eden": "^1.0.14",
+    "@elysiajs/static": "^1.0.3",
+    "@elysiajs/stream": "^1.0.2",
+    "@elysiajs/swagger": "^1.0.5",
+    "@elysiajs/websocket": "^0.2.8",
+    "@gtrabanco/elysia-inject-html": "^1.1.0",
+    "@tailwindcss/cli": "^4.0.0-alpha.16",
+    "@tailwindcss/vite": "^4.0.0-alpha.16",
+    "@types/bun": "latest",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "browserslist": "^4.23.1",
+    "classnames": "^2.5.1",
+    "elysia": "^1.0.23",
+    "lightningcss": "^1.25.1",
+    "react": "^19.0.0-rc-dfd30974ab-20240613",
+    "react-dom": "^19.0.0-rc-dfd30974ab-20240613",
+    "tailwindcss": "^4.0.0-alpha.16",
+    "temporal-polyfill": "^0.2.5",
+    "typescript": "latest",
+    "vite": "^5.3.0"
+  },
+  "keywords": [
+    "bun-js",
+    "elysia",
+    "rsc",
+    "react",
+    "experimental"
+  ]
+}

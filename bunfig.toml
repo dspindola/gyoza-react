@@ -1,0 +1,15 @@
+preload = ["./.config/build.ts"]
+jsx = "react"
+jsxImportSource = "react"
+logLevel = "debug"
+
+[define]
+"console.log" = "console.debug"
+"import.meta.env" = "process.env"
+"Bun._hash_" = "crypto.randomUUID()"
+
+[loader]
+".tsx" = "tsx"
+".css" = "css"
+".svg" = "file"
+".ts" = "ts"
