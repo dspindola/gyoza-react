@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleDetection": "force",
+        "moduleResolution": "Bundler",
+        "esModuleInterop": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "lib": [
+            "ESNext",
+            "ScriptHost",
+            "WebWorker"
+        ],
+        "outDir": ".gyoza/packages",
+        "emitDeclarationOnly": true,
+        "composite": true,
+        "types": [
+            "bun",
+            "react-dom/server"
+        ]
+    },
+    "include": [
+        "./packages/**/*.ts",
+        "./packages/**/*.d.ts"
+    ],
+    "exclude": [
+        "./app",
+        "./node_modules",
+        "./dist"
+    ]
+}

@@ -1,13 +1,8 @@
-import React from "react";
-import { App } from "@/server";
-
-async function load() {
-	"use server";
-	return App().api.index.get();
-}
+import { api } from "@/app/libs/api";
+import { use } from "react";
 
 export default function Route() {
-	const { data } = React.use(load());
+	const data = use(api.index.get().then(r => r.data?.data));
 
 	return <pre className="text-blue-500">{data}</pre>;
 }

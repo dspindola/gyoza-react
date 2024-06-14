@@ -1,6 +1,13 @@
-import type { Elysia } from "elysia";
+import { APIHandler } from "@/packages/api/route";
 
-export default <T extends Elysia>(api: T) =>
-	api
-		.get("/", () => Bun.file("bunfig.toml").text())
-		.post("/", ({ body }) => body);
+export const GET = APIHandler((ctx) => {
+	return {
+		data: "hi"
+	}
+})
+
+export const POST = APIHandler(({ request }) => {
+	return request.url
+});
+
+export const DELETE = APIHandler(() => "ok")

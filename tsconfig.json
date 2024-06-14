@@ -1,9 +1,6 @@
 {
 	"compilerOptions": {
-		"lib": [
-			"ESNext",
-			"DOM"
-		],
+		"lib": ["ESNext", "DOM"],
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleDetection": "force",
@@ -20,17 +17,10 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"noPropertyAccessFromIndexSignature": false,
-		"types": [
-			"temporal-polyfill",
-			"react-dom",
-			"react",
-			"bun"
-		],
+		"types": ["temporal-polyfill", "react-dom", "react", "bun"],
 		"baseUrl": "./",
 		"paths": {
-			"@/*": [
-				"./*"
-			]
+			"@/*": ["./*"]
 		}
 	},
 	"include": [
