@@ -10,6 +10,6 @@ logLevel = "debug"
 
 [loader]
 ".tsx" = "tsx"
-".css" = "css"
+".css" = "text"
 ".svg" = "file"
 ".ts" = "ts"

@@ -1,6 +1,6 @@
 import type { Context, RouteBase, SingletonBase } from "elysia";
 import { renderToReadableStream } from "react-dom/server";
-import { createRouter } from "./router";
+import { createRouter } from "@/packages/router";
 
 export async function loadSource(filePath: string) {
 	return await import(filePath!).then((module) => module.default);

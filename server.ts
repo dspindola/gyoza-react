@@ -5,6 +5,9 @@ import { treaty } from "@elysiajs/eden";
 import { swagger } from "@elysiajs/swagger";
 import { staticPlugin } from "@elysiajs/static";
 import { cors } from "@elysiajs/cors";
+import appConfig from "./app.config";
+
+const staticPluginConfig = appConfig.server.plugins.find(({ name }) => name === "@elysiajs/static") as Object
 
 const isProd = process.env.NODE_ENV === "production";
 const port = isProd ? 8080 : 3000;
@@ -15,25 +18,21 @@ export const Api = () =>
 		prefix: "/api",
 	})
 		.use(swagger())
-		.get('/', index.GET)
-		.post('/', index.POST)
-		.delete('/', index.DELETE)
+		.get("/", index.GET)
+		.post("/", index.POST)
+		.delete("/", index.DELETE);
 
 export type API = ReturnType<typeof Api>;
 
 export const App = () => treaty<API>(hostname + ":" + port);
 
 const publicAssets = () =>
-	staticPlugin({
-		assets: "public",
-		noCache: true,
-		alwaysStatic: false,
-		directive: "public",
-	});
+	staticPlugin(staticPluginConfig);
 
-const distMain = () => Bun.file("dist/client/main.js");
+const dist = (path: string) =>
+	new Elysia().get(path, () => Bun.file("dist/client/main.js"));
 
-const favicon = () => Bun.file("public/favicon.ico");
+const favicon = Bun.file("public/favicon.ico");
 
 const app = () =>
 	new Elysia()
@@ -41,7 +40,7 @@ const app = () =>
 		.use(publicAssets())
 		.use(Api())
 		.get("/favicon.ico", favicon)
-		.get("/_dist/main.js", distMain)
+		.use(dist("/_dist/main.js"))
 		.all("*", handler)
 		.listen(
 			{

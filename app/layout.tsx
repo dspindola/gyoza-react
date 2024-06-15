@@ -1,4 +1,4 @@
-"use server";
+import classNames from "classnames";
 
 export default function Layout({
 	children,
@@ -14,7 +14,7 @@ export default function Layout({
 				<link rel="icon" href="/favicon.ico" type={"image/x-icon"} />
 				<script src="https://cdn.tailwindcss.com/" />
 			</head>
-			{children}
+			<body className={classNames("bg-black text-white")}>{children}</body>
 		</html>
 	);
 }

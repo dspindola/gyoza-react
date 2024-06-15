@@ -1,3 +1,7 @@
 export default function Route() {
-	return <p className="text-3xl">app</p>;
+	return (
+		<main>
+			<p className="text-3xl">apps</p>
+		</main>
+	);
 }

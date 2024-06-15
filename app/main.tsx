@@ -13,11 +13,5 @@ export default function App({
 		as: "script",
 	});
 
-	return (
-		<Layout>
-			<body className={classnames("bg-black", "text-white", "font-mono")}>
-				{children}
-			</body>
-		</Layout>
-	);
+	return <Layout>{children}</Layout>;
 }
